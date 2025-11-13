@@ -1,4 +1,4 @@
-baseURL: "https://carbonslash.github.io/Carbon-Slash/"
+baseURL = "https://carbonslash.github.io/Carbon-Slash/"
 languageCode: "en-us"
-title: "Carbon Slash"
+title: "My Hugo Site"
 # ... rest of your settings
