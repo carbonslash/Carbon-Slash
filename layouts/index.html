@@ -7,39 +7,77 @@
     {{ partial "header.html" . }}
 
     <main>
-        <div class="container">
+        <div class="container homepage-grid">
             
-            <section class="latest-stories">
-                <h2 id="latest">Latest</h2>
-                <p class="section-description">Articles</p>
+            {{/* LEFT COLUMN: MAIN PAGINATED CONTENT FEED */}}
+            <div class="main-content-column">
 
-                <div class="grid-swiss">
+                <section class="latest-stories">
+                    <h2 id="latest">Latest Articles</h2>
                     
-                    {{ range first 4 site.RegularPages.ByDate.Reverse }} 
-                        
-                        <a href="{{ .Permalink }}" class="article-link-wrapper">
-                            <article class="card">
-                                <div class="card-image">
-                                    <img src="{{ .Params.image }}" alt="{{ .Title }}">
-                                </div>
-                                <div class="card-content">
-                                    <span class="tag tag-{{ .Params.category | urlize }}">{{ .Params.category }}</span>
-                                    <h3 class="card-title">{{ .Title }}</h3>
-                                    <p class="card-excerpt">{{ .Params.excerpt }}</p>
-                                    <div class="card-meta">
-                                        <span class="author">By {{ .Params.author }}</span>
-                                        <span class="date">{{ .Date.Format "January 2, 2006" }}</span>
+                    {{/* HUGO PAGINATION SETUP (9 articles per page) */}}
+                    {{ $paginator := .Paginate (.Site.RegularPages.ByDate.Reverse) 9 }}
+                    
+                    <div class="grid-swiss">
+                        {{ range $paginator.Pages }} 
+                            
+                            <a href="{{ .Permalink }}" class="article-link-wrapper">
+                                <article class="card">
+                                    <div class="card-image">
+                                        <img src="{{ .Params.image }}" alt="{{ .Title }}">
                                     </div>
-                                </div>
-                            </article>
-                        </a>
-                        
+                                    <div class="card-content">
+                                        <span class="tag tag-{{ .Params.category | urlize }}">{{ .Params.category }}</span>
+                                        <h3 class="card-title">{{ .Title }}</h3>
+                                        <p class="card-excerpt">{{ .Params.excerpt }}</p>
+                                        <div class="card-meta">
+                                            <span class="author">By {{ .Params.author }}</span>
+                                            <span class="date">{{ .Date.Format "January 2, 2006" }}</span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </a>
+                            
+                        {{ end }}
+                    </div>
+
+                    {{/* PAGINATION CONTROLS */}}
+                    {{ if gt $paginator.TotalPages 1 }}
+                        <div class="pagination-controls">
+                            {{ if $paginator.HasPrev }}
+                                <a href="{{ $paginator.Prev.URL }}" class="button pagination-prev">← Newer Articles</a>
+                            {{ end }}
+                            {{ if $paginator.HasNext }}
+                                <a href="{{ $paginator.Next.URL }}" class="button pagination-next">Older Articles →</a>
+                            {{ end }}
+                        </div>
                     {{ end }}
-                    
-                </div>
-            </section>
+                </section>
+            </div>
             
-        </div>
+            {{/* RIGHT COLUMN: FEATURED SIDEBAR (STATIC) */}}
+            <aside class="sidebar-column">
+                <div class="featured-articles-section">
+                    <h3 class="section-title">Featured Articles</h3>
+                    
+                    {{/* Filter pages for 'electric' or 'innovation' categories */}}
+                    {{ $featuredPosts := where .Site.RegularPages "Params.category" "in" (slice "electric" "innovation") }}
+                    
+                    {{ range first 4 $featuredPosts.ByDate.Reverse }}
+                        <a href="{{ .Permalink }}" class="card article-link-wrapper featured-card">
+                            <div class="card-content">
+                                <h4 class="card-title">{{ .Title }}</h4>
+                                <div class="card-meta">
+                                    <span class="tag tag-{{ .Params.category | urlize }}">{{ .Params.category }}</span>
+                                    <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    {{ end }}
+                </div>
+            </aside>
+            
+        </div> {{/* End of .homepage-grid container */}}
         
         <section class="newsletter">
             <div class="container">
@@ -57,7 +95,6 @@
 
     {{ partial "footer.html" . }} 
     
-    {{/* FIX: Corrected JavaScript link using relURL */}}
-    <script src="{{ "/js/script.js" | relURL }}"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
