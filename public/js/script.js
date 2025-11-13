@@ -1,37 +1,28 @@
-// script.js - Enhanced Navigation & UI Behavior
+// script.js - Carbon Slash Functionality
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* ============================================================
-       Prevent FOUT (Flash of Unstyled Text)
-    ============================================================ */
-    if (document.fonts?.ready) {
+    // ===== Prevent FOUT (Flash of Unstyled Text) =====
+    if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(() => document.body.classList.remove('js-loading'));
     } else {
         setTimeout(() => document.body.classList.remove('js-loading'), 100);
     }
 
-
-    /* ============================================================
-       Header Scroll Behavior (Shrink + Hide on Downscroll)
-    ============================================================ */
+    // ===== Header Scroll Behavior =====
     const header = document.querySelector('.header');
     let lastScrollY = window.scrollY;
     let ticking = false;
 
     const updateHeader = () => {
-        const y = window.scrollY;
+        const scrolled = window.scrollY > 100;
+        header.classList.toggle('scrolled', scrolled);
 
-        // Shrink state
-        header.classList.toggle('scrolled', y > 100);
-
-        // Hide on downward fast scroll
-        if (y > lastScrollY && y > 200) {
+        if (window.scrollY > lastScrollY && window.scrollY > 200) {
             header.classList.add('hidden');
         } else {
             header.classList.remove('hidden');
         }
 
-        lastScrollY = y;
+        lastScrollY = window.scrollY;
         ticking = false;
     };
 
@@ -42,19 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
-    /* ============================================================
-       Desktop Mega Menu
-    ============================================================ */
+    // ===== Desktop Mega Menu =====
     const menuTrigger = document.querySelector('.menu-trigger');
     const megaMenu = document.querySelector('.mega-menu');
 
     if (menuTrigger && megaMenu) {
         menuTrigger.addEventListener('click', e => {
-            if (window.innerWidth <= 768) return;
             e.stopPropagation();
-            menuTrigger.classList.toggle('active');
-            megaMenu.classList.toggle('active');
+            if (window.innerWidth > 768) {
+                menuTrigger.classList.toggle('active');
+                megaMenu.classList.toggle('active');
+            }
         });
 
         document.addEventListener('click', e => {
@@ -76,31 +65,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    /* ============================================================
-       Mobile Menu
-    ============================================================ */
+    // ===== Mobile Menu =====
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileMenuTrigger = document.querySelector('.mobile-menu-trigger');
     const mobileMenuClose = document.querySelector('.mobile-menu-close');
     const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
 
     const openMobileMenu = () => {
+        if (!mobileMenu) return;
         mobileMenu.classList.add('active');
         document.body.style.overflow = 'hidden';
 
+        // visually mark trigger as active
         mobileMenuTrigger.classList.add('active');
         mobileMenuTrigger.style.background = 'rgba(45, 90, 75, 0.1)';
         mobileMenuTrigger.style.color = 'var(--forest-green)';
     };
 
     const closeMobileMenu = () => {
+        if (!mobileMenu) return;
         mobileMenu.classList.remove('active');
         document.body.style.overflow = '';
 
-        // ⭐ Reset scroll so menu always opens from the top
-        mobileMenu.scrollTop = 0;
-
+        // remove any background/glow instantly
         mobileMenuTrigger.classList.remove('active');
         mobileMenuTrigger.style.background = 'none';
         mobileMenuTrigger.style.color = 'var(--true-black)';
@@ -125,47 +112,20 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
     document.addEventListener('click', e => {
-        if (
-            window.innerWidth <= 768 &&
-            mobileMenu.classList.contains('active') &&
-            !mobileMenu.contains(e.target) &&
-            !mobileMenuTrigger.contains(e.target)
-        ) {
-            closeMobileMenu();
+        if (window.innerWidth <= 768 && mobileMenu?.classList.contains('active')) {
+            if (!mobileMenu.contains(e.target) && !mobileMenuTrigger.contains(e.target)) {
+                closeMobileMenu();
+            }
         }
     });
 
     document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) {
             closeMobileMenu();
         }
     });
 
-
-    /* ============================================================
-       Sync Mobile Menu Position to Header Height
-       (Eliminates the gap when header shrinks)
-    ============================================================ */
-    if (header && mobileMenu) {
-        const updateMenuOffset = () => {
-            const h = header.offsetHeight;
-            mobileMenu.style.top = `${h}px`;
-            mobileMenu.style.height = `calc(100vh - ${h}px)`;
-        };
-
-        const observer = new ResizeObserver(updateMenuOffset);
-        observer.observe(header);
-
-        window.addEventListener('scroll', updateMenuOffset);
-        window.addEventListener('resize', updateMenuOffset);
-
-        updateMenuOffset();
-    }
-
-
-    /* ============================================================
-       Search Trigger (placeholder)
-    ============================================================ */
+    // ===== Search Trigger =====
     const searchTrigger = document.querySelector('.search-trigger');
     if (searchTrigger) {
         searchTrigger.addEventListener('click', () => {
@@ -173,10 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    /* ============================================================
-       Smooth Scrolling for Anchors
-    ============================================================ */
+    // ===== Smooth Scrolling =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', e => {
             e.preventDefault();
@@ -185,21 +142,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-    /* ============================================================
-       Newsletter Form
-    ============================================================ */
+    // ===== Newsletter Form =====
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', e => {
             e.preventDefault();
-
             const submitButton = newsletterForm.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
 
             submitButton.textContent = 'Subscribed!';
             submitButton.disabled = true;
-
             newsletterForm.reset();
 
             setTimeout(() => {
@@ -209,10 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    /* ============================================================
-       Card Hover
-    ============================================================ */
+    // ===== Card Hover Effects =====
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('mouseenter', () => {
             card.style.transition = 'transform 0.3s ease';
