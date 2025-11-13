@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body class="js-loading">
+    {{ partial "header.html" . }}
+
+    <main>
+        <div class="container homepage-grid">
+            
+            {{/* LEFT COLUMN: MAIN PAGINATED CONTENT FEED */}}
+            <div class="main-content-column">
+
+                <section class="latest-stories">
+                    <h2 id="latest">Latest Articles</h2>
+                    
+                    {{/* HUGO PAGINATION SETUP (9 articles per page) */}}
+                    {{ $paginator := .Paginate (.Site.RegularPages.ByDate.Reverse) 9 }}
+                    
+                    <div class="grid-swiss">
+                        {{ range $paginator.Pages }} 
+                            
+                            <a href="{{ .Permalink }}" class="article-link-wrapper">
+                                <article class="card">
+                                    <div class="card-image">
+                                        <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="tag tag-{{ .Params.category | urlize }}">{{ .Params.category }}</span>
+                                        <h3 class="card-title">{{ .Title }}</h3>
+                                        <p class="card-excerpt">{{ .Params.excerpt }}</p>
+                                        <div class="card-meta">
+                                            <span class="author">By {{ .Params.author }}</span>
+                                            <span class="date">{{ .Date.Format "January 2, 2006" }}</span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </a>
+                            
+                        {{ end }}
+                    </div>
+
+                    {{/* PAGINATION CONTROLS */}}
+                    {{ if gt $paginator.TotalPages 1 }}
+                        <div class="pagination-controls">
+                            {{ if $paginator.HasPrev }}
+                                <a href="{{ $paginator.Prev.URL }}" class="button pagination-prev">← Newer Articles</a>
+                            {{ end }}
+                            {{ if $paginator.HasNext }}
+                                <a href="{{ $paginator.Next.URL }}" class="button pagination-next">Older Articles →</a>
+                            {{ end }}
+                        </div>
+                    {{ end }}
+                </section>
+            </div>
+            
+            {{/* RIGHT COLUMN: FEATURED SIDEBAR (STATIC) */}}
+            <aside class="sidebar-column">
+                <div class="featured-articles-section">
+                    <h3 class="section-title">Featured Articles</h3>
+                    
+                    {{/* Filter pages for 'electric' or 'innovation' categories */}}
+                    {{ $featuredPosts := where .Site.RegularPages "Params.category" "in" (slice "electric" "innovation") }}
+                    
+                    {{ range first 4 $featuredPosts.ByDate.Reverse }}
+                        <a href="{{ .Permalink }}" class="card article-link-wrapper featured-card">
+                            <div class="card-content">
+                                <h4 class="card-title">{{ .Title }}</h4>
+                                <div class="card-meta">
+                                    <span class="tag tag-{{ .Params.category | urlize }}">{{ .Params.category }}</span>
+                                    <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    {{ end }}
+                </div>
+            </aside>
+            
+        </div> {{/* End of .homepage-grid container */}}
+        
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Informed</h2>
+                    <p class="newsletter-description">Receive our premium insights directly in your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {{ partial "footer.html" . }} 
+    
+    <script src="/js/script.js"></script>
+</body>
+</html>

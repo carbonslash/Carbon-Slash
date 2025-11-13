@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Nov 2025 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Silent Revolution: How Electric Vehicles are Reshaping Urban Life</title>
+      <link>http://localhost:1313/electric/revolution-electric-vehicles/</link>
+      <pubDate>Wed, 12 Nov 2025 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/electric/revolution-electric-vehicles/</guid>
+      <description>&lt;h2 id=&#34;the-shift-to-electric-mobility&#34;&gt;The Shift to Electric Mobility&lt;/h2&gt;&#xA;&lt;p&gt;The move from combustion engines to electric motors is arguably the most significant transformation in personal transportation since the Model T. While the immediate focus is often on climate benefits, the impact on city dwellers is tangible and immediate.&lt;/p&gt;&#xA;&lt;h3 id=&#34;quiet-streets-cleaner-air&#34;&gt;Quiet Streets, Cleaner Air&lt;/h3&gt;&#xA;&lt;p&gt;The most noticeable difference an EV-dominated city brings is silence. Noise pollution, a constant source of stress and health issues in metropolitan areas, drastically drops with the widespread adoption of electric fleets.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Race for Solid-State Batteries Heats Up</title>
+      <link>http://localhost:1313/innovation/the-race-for-solid-state-batteries/</link>
+      <pubDate>Mon, 10 Nov 2025 11:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/innovation/the-race-for-solid-state-batteries/</guid>
+      <description>&lt;h2 id=&#34;the-promise-of-lithium-ions-successor&#34;&gt;The Promise of Lithium-Ion&amp;rsquo;s Successor&lt;/h2&gt;&#xA;&lt;p&gt;Traditional liquid lithium-ion batteries have long dominated the market, but their performance plateau and safety concerns are pushing manufacturers toward a new frontier. Solid-state technology eliminates the flammable liquid electrolyte, replacing it with a solid material that can be safer and more energy-dense.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Invisible Network: How Smart City Sensors Are Changing Public Spaces</title>
+      <link>http://localhost:1313/electric/the-invisible-network-smart-city-sensors/</link>
+      <pubDate>Mon, 10 Nov 2025 10:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/electric/the-invisible-network-smart-city-sensors/</guid>
+      <description>&lt;h2 id=&#34;the-ubiquity-of-data-in-modern-cities&#34;&gt;The Ubiquity of Data in Modern Cities&lt;/h2&gt;&#xA;&lt;p&gt;The concept of a &amp;lsquo;smart city&amp;rsquo; is built upon the foundation of ubiquitous sensing. These tiny, often invisible, sensors are the eyes and ears of urban management systems, constantly gathering data to optimize every function of city life. They are fundamentally changing how public spaces are managed and experienced.&lt;/p&gt;&#xA;&lt;h3 id=&#34;optimizing-resources-and-services&#34;&gt;Optimizing Resources and Services&lt;/h3&gt;&#xA;&lt;p&gt;The primary benefit of this invisible network is efficiency. Smart sensors allow city services to operate on demand rather than on fixed schedules, leading to massive resource savings and reduced operational costs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Carbon Capture: Policy and Market Dynamics</title>
+      <link>http://localhost:1313/insights/understanding-carbon-capture-markets/</link>
+      <pubDate>Sat, 08 Nov 2025 14:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/insights/understanding-carbon-capture-markets/</guid>
+      <description>&lt;h2 id=&#34;the-100-per-tonne-challenge&#34;&gt;The $100 Per Tonne Challenge&lt;/h2&gt;&#xA;&lt;p&gt;For carbon capture and storage (CCS) to be economically viable at scale, the industry must meet the challenge of lowering the cost of capture, transport, and sequestration. Government incentives, particularly those focused on long-term storage, are key to scaling up this critical climate solution.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Microgrids and Local Power: The Future of Energy Resiliency</title>
+      <link>http://localhost:1313/community/local-power-grids-future-of-energy/</link>
+      <pubDate>Wed, 05 Nov 2025 09:15:00 +0000</pubDate>
+      <guid>http://localhost:1313/community/local-power-grids-future-of-energy/</guid>
+      <description>&lt;h2 id=&#34;resilience-through-decentralization&#34;&gt;Resilience Through Decentralization&lt;/h2&gt;&#xA;&lt;p&gt;The vulnerability of large, centralized power grids during extreme weather events has highlighted the necessity of local power generation. Microgrids, often powered by solar and storage, can disconnect from the main grid to operate independently, providing critical power to hospitals and emergency centers.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

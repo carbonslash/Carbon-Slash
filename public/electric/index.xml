@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Electrics on My New Hugo Site</title>
+    <link>http://localhost:1313/electric/</link>
+    <description>Recent content in Electrics on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Nov 2025 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/electric/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Silent Revolution: How Electric Vehicles are Reshaping Urban Life</title>
+      <link>http://localhost:1313/electric/revolution-electric-vehicles/</link>
+      <pubDate>Wed, 12 Nov 2025 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/electric/revolution-electric-vehicles/</guid>
+      <description>&lt;h2 id=&#34;the-shift-to-electric-mobility&#34;&gt;The Shift to Electric Mobility&lt;/h2&gt;&#xA;&lt;p&gt;The move from combustion engines to electric motors is arguably the most significant transformation in personal transportation since the Model T. While the immediate focus is often on climate benefits, the impact on city dwellers is tangible and immediate.&lt;/p&gt;&#xA;&lt;h3 id=&#34;quiet-streets-cleaner-air&#34;&gt;Quiet Streets, Cleaner Air&lt;/h3&gt;&#xA;&lt;p&gt;The most noticeable difference an EV-dominated city brings is silence. Noise pollution, a constant source of stress and health issues in metropolitan areas, drastically drops with the widespread adoption of electric fleets.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Invisible Network: How Smart City Sensors Are Changing Public Spaces</title>
+      <link>http://localhost:1313/electric/the-invisible-network-smart-city-sensors/</link>
+      <pubDate>Mon, 10 Nov 2025 10:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/electric/the-invisible-network-smart-city-sensors/</guid>
+      <description>&lt;h2 id=&#34;the-ubiquity-of-data-in-modern-cities&#34;&gt;The Ubiquity of Data in Modern Cities&lt;/h2&gt;&#xA;&lt;p&gt;The concept of a &amp;lsquo;smart city&amp;rsquo; is built upon the foundation of ubiquitous sensing. These tiny, often invisible, sensors are the eyes and ears of urban management systems, constantly gathering data to optimize every function of city life. They are fundamentally changing how public spaces are managed and experienced.&lt;/p&gt;&#xA;&lt;h3 id=&#34;optimizing-resources-and-services&#34;&gt;Optimizing Resources and Services&lt;/h3&gt;&#xA;&lt;p&gt;The primary benefit of this invisible network is efficiency. Smart sensors allow city services to operate on demand rather than on fixed schedules, leading to massive resource savings and reduced operational costs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

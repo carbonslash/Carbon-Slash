@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body class="js-loading">
+    {{ partial "header.html" . }}
+
+    <main>
+        <section class="category-header">
+            <div class="container">
+                {{/* Use custom 'header_title' from front matter, otherwise default to the category name */}}
+                <h1 class="category-title">{{ with .Params.header_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}</h1>
+                
+                {{/* Use custom 'description' from front matter, otherwise use a generic fallback */}}
+                <p class="category-description">{{ with .Params.description }}{{ . }}{{ else }}Exploring the latest stories, research, and analysis in the {{ .Title }} sector.{{ end }}</p> 
+            </div>
+        </section>
+
+        {{/* TWO-COLUMN GRID LAYOUT FOR CATEGORY PAGE */}}
+        <div class="category-layout-grid container">
+            
+            {{/* LEFT COLUMN: MAIN CATEGORY CONTENT (Paginated List) */}}
+            <div class="category-main-content">
+                <section class="featured">
+                    <div class="grid-swiss">
+                        
+                        {{ range .Paginator.Pages }} 
+                            
+                            <a href="{{ .Permalink }}" class="article-link-wrapper">
+                                <article class="card">
+                                    <div class="card-image">
+                                        <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="tag tag-{{ .Params.category | urlize }}">{{ .Params.category }}</span>
+                                        <h3 class="card-title">{{ .Title }}</h3>
+                                        <p class="card-excerpt">{{ .Params.excerpt }}</p>
+                                        <div class="card-meta">
+                                            <span class="author">By {{ .Params.author }}</span>
+                                            <span class="date">{{ .Date.Format "January 2, 2006" }}</span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </a>
+
+                        {{ end }}
+                        
+                    </div>
+                </section>
+                
+                {{/* Pagination Controls */}}
+                {{ if .Paginator.HasPrev | or .Paginator.HasNext }}
+                <div class="pagination-controls">
+                    {{ if .Paginator.HasPrev }}
+                        <a href="{{ .Paginator.Prev.URL }}" class="button">&larr; Newer Posts</a>
+                    {{ else }}
+                        <span></span>
+                    {{ end }}
+                    
+                    {{ if .Paginator.HasNext }}
+                        <a href="{{ .Paginator.Next.URL }}" class="button">Older Posts &rarr;</a>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+
+            {{/* RIGHT COLUMN: CATEGORY SIDEBAR */}}
+            <div class="category-sidebar-column">
+                <div class="featured-category-sidebar">
+                    <h3 class="related-articles-title">More in {{ .Title }}</h3>
+                    
+                    {{/* LOGIC CHANGE: Get the 4 chronologically oldest articles in this section. */}}
+                    {{ $sidebarPosts := .Pages.ByDate | first 4 }}
+                    
+                    {{ with $sidebarPosts }}
+                    <div class="grid-swiss sidebar-card-grid"> 
+                        
+                        {{ range . }}
+                        <a href="{{ .Permalink }}" class="article-link-wrapper">
+                            <article class="card">
+                                <div class="card-image">
+                                    <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                                </div>
+                                <div class="card-content">
+                                    <span class="tag tag-{{ .Params.category | urlize }}">{{ .Params.category }}</span>
+                                    {{/* Using h4 for title hierarchy in the sidebar */}}
+                                    <h4 class="card-title">{{ .Title }}</h4>
+                                    {{/* Excerpt is removed/hidden by CSS below for space */}}
+                                    <div class="card-meta">
+                                        <span class="author">By {{ .Params.author }}</span>
+                                        <span class="date">{{ .Date.Format "January 2, 2006" }}</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        {{ end }}
+                        
+                    </div>
+                    {{ else }}
+                    <p>No other articles found in this category.</p>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    {{ partial "footer.html" . }} 
+    
+    <script src="/js/script.js"></script>
+</body>
+</html>

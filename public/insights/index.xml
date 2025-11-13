@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Insights on My New Hugo Site</title>
+    <link>http://localhost:1313/insights/</link>
+    <description>Recent content in Insights on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Nov 2025 14:45:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/insights/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Carbon Capture: Policy and Market Dynamics</title>
+      <link>http://localhost:1313/insights/understanding-carbon-capture-markets/</link>
+      <pubDate>Sat, 08 Nov 2025 14:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/insights/understanding-carbon-capture-markets/</guid>
+      <description>&lt;h2 id=&#34;the-100-per-tonne-challenge&#34;&gt;The $100 Per Tonne Challenge&lt;/h2&gt;&#xA;&lt;p&gt;For carbon capture and storage (CCS) to be economically viable at scale, the industry must meet the challenge of lowering the cost of capture, transport, and sequestration. Government incentives, particularly those focused on long-term storage, are key to scaling up this critical climate solution.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

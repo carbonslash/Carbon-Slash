@@ -1,0 +1,30 @@
+/* fonts.css - Comprehensive FOUT Prevention */
+@font-face {
+  font-family: 'Rubik Dirt';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap; /* Use swap for better FOUT handling */
+  src: url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
+}
+
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+}
+
+/* Fallback font metrics matching */
+body {
+  font-family: 'Helvetica Neue', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Ensure content is visible during font loading */
+.fonts-loading .logo,
+.fonts-loading h1,
+.fonts-loading h2,
+.fonts-loading h3 {
+  visibility: visible;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}

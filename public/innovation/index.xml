@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Innovations on My New Hugo Site</title>
+    <link>http://localhost:1313/innovation/</link>
+    <description>Recent content in Innovations on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Nov 2025 11:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/innovation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Race for Solid-State Batteries Heats Up</title>
+      <link>http://localhost:1313/innovation/the-race-for-solid-state-batteries/</link>
+      <pubDate>Mon, 10 Nov 2025 11:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/innovation/the-race-for-solid-state-batteries/</guid>
+      <description>&lt;h2 id=&#34;the-promise-of-lithium-ions-successor&#34;&gt;The Promise of Lithium-Ion&amp;rsquo;s Successor&lt;/h2&gt;&#xA;&lt;p&gt;Traditional liquid lithium-ion batteries have long dominated the market, but their performance plateau and safety concerns are pushing manufacturers toward a new frontier. Solid-state technology eliminates the flammable liquid electrolyte, replacing it with a solid material that can be safer and more energy-dense.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

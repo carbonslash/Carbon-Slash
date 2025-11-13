@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body class="js-loading">
+    {{ partial "header.html" . }}
+
+    <main class="article-page">
+        {{/* TWO-COLUMN GRID LAYOUT */}}
+        <div class="article-layout-grid container">
+            
+            {{/* LEFT COLUMN: MAIN ARTICLE (FLOATING TILE) */}}
+            <div class="main-article-column">
+                <article class="article-tile">
+                    
+                    <div class="article-header-container">
+                        {{/* --- CHANGE APPLIED HERE ---
+                           The tag is now an <a> element linking to the category page.
+                           Example: If .Params.category is "Electric", the URL will be /electric/
+                        */}}
+                        <a href="{{ "/" | relLangURL }}{{ .Params.category | urlize }}/" class="tag tag-{{ .Params.category | urlize }}">
+                            {{ .Params.category }}
+                        </a>
+                        
+                        <h1 class="article-title">{{ .Title }}</h1>
+                        <p class="article-excerpt">{{ .Params.excerpt }}</p>
+                        
+                        <div class="article-meta">
+                            <span class="author">By {{ .Params.author }}</span>
+                            <span class="date">{{ .Date.Format "January 2, 2006" }}</span>
+                        </div>
+                    </div>
+
+                   <figure class="article-figure">
+                        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="img-responsive">
+                        {{ if .Params.image_credit }}
+                        <figcaption class="image-credit-caption">
+                            Image Credit: {{ .Params.image_credit }}
+                        </figcaption>
+                        {{ end }}
+                    </figure>
+
+                    <div class="article-content">
+                        {{ .Content }}
+                    </div>
+                </article>
+            </div>
+
+            {{/* RIGHT COLUMN: RELATED ARTICLES */}}
+            <div class="related-articles-column">
+                <div class="related-articles-sidebar">
+                    <h3 class="related-articles-title">Related Articles</h3>
+                    
+                    {{/* Fetch 4 related articles from the same section/category, excluding the current article */}}
+                    {{ $sidebarPosts := where (where .Site.RegularPages "Section" .Section) "Permalink" "!=" .Permalink | first 4 }}
+                    
+                    {{ with $sidebarPosts }}
+                    {{/* Use grid-swiss for uniform card layout */}}
+                    <div class="grid-swiss article-sidebar-card-grid"> 
+                        
+                        {{ range . }}
+                        <a href="{{ .Permalink }}" class="article-link-wrapper">
+                            <article class="card">
+                                <div class="card-image">
+                                    <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                                </div>
+                                <div class="card-content">
+                                    {{/* Also updating the tags in the sidebar for consistency */}}
+                                    <a href="{{ "/" | relLangURL }}{{ .Params.category | urlize }}/" class="tag tag-{{ .Params.category | urlize }}">
+                                        {{ .Params.category }}
+                                    </a>
+                                    <h4 class="card-title">{{ .Title }}</h4>
+                                    <div class="card-meta">
+                                        <span class="author">By {{ .Params.author }}</span>
+                                        <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        {{ end }}
+                        
+                    </div>
+                    {{ else }}
+                    <p>No related articles found.</p>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {{ partial "footer.html" . }} 
+    
+    <script src="/js/script.js"></script>
+</body>
+</html>
