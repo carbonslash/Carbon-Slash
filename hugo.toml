@@ -1,3 +1,4 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL: "https://carbonslash.github.io/Carbon-Slash/"
+languageCode: "en-us"
+title: "My Hugo Site"
+# ... rest of your settings
