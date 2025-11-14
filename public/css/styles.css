@@ -724,6 +724,7 @@ p {
   /* Positions the bullet/number inside the content area for alignment */
   list-style-position: inside;
 }
+
 /* 2. Article Header Container */
 .article-header-container {
     max-width: 750px; /* Center text column */
@@ -1725,7 +1726,7 @@ p {
   /* 3. ENSURE HORIZONTAL SPACE */
   .container {
     /* Set horizontal padding to 1.5rem (var(--space-md)) for visible side space */
-    padding: 0 var(--space-sm) !important; 
+    padding: 0 var(--space-xs) !important; 
   }
   
   /* 4. Article Figure Adjustment: Reset negative margin to respect new container padding */
