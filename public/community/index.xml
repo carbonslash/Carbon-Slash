@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Communities on Carbon Slash</title>
+    <title>Carbon Slash</title>
     <link>http://localhost:1313/community/</link>
-    <description>Recent content in Communities on Carbon Slash</description>
+    <description>Recent content on Carbon Slash</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Nov 2025 09:15:00 +0000</lastBuildDate>

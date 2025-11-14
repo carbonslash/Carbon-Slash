@@ -717,7 +717,13 @@ p {
     margin: 0;
     width: 100%; /* Ensures it fills its justified space */
 }
-
+.article-tile ul,
+.article-tile ol {
+  padding-left: 0;
+  margin-left: 0;
+  /* Positions the bullet/number inside the content area for alignment */
+  list-style-position: inside;
+}
 /* 2. Article Header Container */
 .article-header-container {
     max-width: 750px; /* Center text column */
@@ -733,7 +739,7 @@ p {
 
 .article-title {
     font-family: 'DM Serif Display', serif;
-    font-size: var(--text-4xl); 
+    font-size: var(--text-3xl); 
     line-height: 1.1;
     margin: var(--space-md) 0 var(--space-lg) 0;
     color: var(--true-black);
@@ -1695,8 +1701,8 @@ p {
   /* 2. ENSURE HORIZONTAL SPACE for all content (including tiles) */
   .container {
     /* Set horizontal padding to 1.5rem (var(--space-md)) */
-    padding-left: var(--space-md) !important; 
-    padding-right: var(--space-md) !important;
+    padding-left: var(--space-sm) !important; 
+    padding-right: var(--space-sm) !important;
   }
 }
 
@@ -1719,7 +1725,7 @@ p {
   /* 3. ENSURE HORIZONTAL SPACE */
   .container {
     /* Set horizontal padding to 1.5rem (var(--space-md)) for visible side space */
-    padding: 0 var(--space-md) !important; 
+    padding: 0 var(--space-sm) !important; 
   }
   
   /* 4. Article Figure Adjustment: Reset negative margin to respect new container padding */
@@ -1727,4 +1733,12 @@ p {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+  .article-tile {
+    padding-left: var(--space-lg) !important;
+    padding-right: var(--space-lg) !important;
+  }
+  .article-tile p {
+  text-align: justify;
+  }
+
 }
