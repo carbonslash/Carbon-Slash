@@ -806,6 +806,7 @@ p {
     margin-top: var(--space-2xl);
     margin-bottom: var(--space-lg);
     font-size: var(--text-2xl);
+	
 }
 
 .article-content h3 {
@@ -1716,6 +1717,18 @@ p {
   body {
     padding-top: 80px !important; 
   }
+.article-content h2 {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-xl);
+	text-align: Center;
+  }
+  .article-content h3 {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-xl);
+	
+	}
 
   /* 2. ENSURE VERTICAL SPACE for Article Tile */
   .article-layout-grid {
