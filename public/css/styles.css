@@ -431,8 +431,6 @@ p {
   height: 16px;
 }
 
-/* Mobile Menu Styles - Updated Positioning */
-
 /* ============================================================
    Base Mobile Menu Styles (hidden by default)
 ============================================================ */
@@ -442,7 +440,7 @@ p {
   left: 0;
 
   /* Top + Height are dynamically adjusted by JS */
-  top: 10;
+  top: 0;
   height: 100vh;
 
   width: 100%;
@@ -711,7 +709,7 @@ p {
 .article-tile {
     background: var(--pure-white); 
     border: 1px solid var(--light-gray); 
-    border-radius: 12px; 
+    border-radius: 4px; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
     padding: var(--space-2xl) var(--space-3xl); /* Generous padding */
     max-width: 900px; /* Constrain the overall tile width */
@@ -730,6 +728,7 @@ p {
 .article-header-container .tag {
     /* Ensures category tag is visible and styled correctly on single page */
     margin-bottom: var(--space-md);
+	
 }
 
 .article-title {
@@ -818,26 +817,28 @@ p {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: var(--space-2xl) auto; 
+    margin: var(--space-xl) auto; 
     border-radius: 4px;
 }
 
 /* NEW: Related Articles Sidebar Styles */
 .
 .related-articles-sidebar {
-    position: relative;
-    top: calc(80px + var(--space-xl)); /* Stick below the fixed header + some margin */
-    padding-left: var(--space-md); /* Add some padding on the left */
-    border-left: 1px solid var(--light-gray);
-    height: fit-content; /* Ensure sidebar doesn't stretch the full height of the parent */
+    position: relative; 
+    top: 0;
+    padding: var(--space-md);
+    background: var(--light-gray); 
+    border-radius: 4px;
+    height: fit-content; 
+	
 }
 
 .related-articles-title {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Rubik';
     font-size: var(--text-lg);
     font-weight: 600;
     color: var(--forest-green);
-    margin-bottom: var(--space-lg);
+    margin-bottom: none;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -936,14 +937,14 @@ p {
     /* Ensures the content column can flex appropriately */
     min-width: 0;
 }
-
+.
 .category-sidebar-column {
     /* Sidebar content box style */
     position: relative; 
-    top: 0;
+    top: 0px;
     padding: var(--space-md);
-    background: var(--light-gray); 
-    border-radius: 8px;
+    background: none; 
+    border-radius: 4px;
     height: fit-content; 
 }
 
@@ -960,6 +961,7 @@ p {
 
 .category-sidebar-column .card-content {
     padding: var(--space-sm); /* Reduce padding for density */
+	
 }
 
 .category-sidebar-column .card-title {
@@ -969,6 +971,7 @@ p {
 
 .category-sidebar-column .card-excerpt {
     display: none; /* Hide the excerpt completely to save space */
+	
 }
 
 
@@ -990,19 +993,24 @@ p {
   padding: var(--space-1x2) 0 var(--space-xl); 
   margin-bottom: 0; /* Eliminates the excessive gap */
   border-bottom: 0px solid var(--light-gray);
+  
+  
 }
 
 .category-title {
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
   color: var(--true-black);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
+  margin-top: var(--space-sm);
+  text-align: center;
 }
 
 .category-description {
+  margin-bottom: var(--space-md) ;
   font-size: var(--text-lg);
   color: var(--true-black);
-  max-width: 600px;
   opacity: 0.8;
+  text-align: center;
 }
 
 /* Section Titles */
@@ -1032,7 +1040,7 @@ p {
 
 /* Cards */
 .card {
-  background-color: var(--pure-white);
+  background-color: none;
   border-radius: 2px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -1078,6 +1086,16 @@ p {
   font-size: var(--text-2xl);
 }
 
+.card-excerpt {
+  /* Required for multi-line clamping */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* Set the exact number of lines you want to display */
+  -webkit-line-clamp: 2; 
+  line-clamp: 2; /* Standard property for future support */
+}
+
 /* --- ARTICLE LINK WRAPPER STYLES (Your Fix) --- */
 
 /* Base style for the link wrapper (to prevent default link styles) */
@@ -1085,11 +1103,14 @@ p {
 .article-link-wrapper * {
   text-decoration: none; 
   color: inherit; /* Inherits the default black from body or white from .hero-article */
+  border-radius: 4px;
+  
 }
 
 /* Explicitly enforce white text inside the dark hero article link wrapper */
 .hero-article .article-link-wrapper * {
   color: var(--pure-white); /* Enforce white for dark background (Your "inside white" request) */
+  
 }
 
 /* Hover effect on the article title (works for both dark and light cards) */
@@ -1109,6 +1130,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .card-meta {
@@ -1146,22 +1168,20 @@ p {
 }
 
 .
-
 .featured-articles-section {
-    position: relative; /* Changed from sticky to relative, as requested (syntax corrected) */
-    top: calc(80px + var(--space-2xl)); /* New top value applied (variable typo corrected to --space-2xl) */
+    position: relative; 
+    top: 40px;
     padding: var(--space-md);
-    background: var(--light-gray); /* Light background for contrast */
+    background: var(--light-gray); 
     border-radius: 8px;
-    height: fit-content; /* Prevent it from stretching the entire height */
+    height: fit-content;  
 }
-}
+
 
 .featured-articles-section .section-title {
     margin-bottom: var(--space-lg);
     font-size: var(--text-lg);
     color: var(--forest-green);
-    border-bottom: 2px solid var(--sage);
     padding-bottom: var(--space-xs);
 }
 
@@ -1234,9 +1254,11 @@ p {
 .newsletter {
   background-color: var(--pure-white);
   padding: var(--space-2xl) 0;
-  margin-bottom: var(--space-2xl);
+  margin-top:var(--space-2xl);
+  margin-bottom: none;
   border-top: 1px solid var(--light-gray);
-  border-bottom: 1px solid var(--light-gray);
+  border-bottom: none;
+
 }
 
 .newsletter-content {
@@ -1559,6 +1581,7 @@ p {
   .related-article-image {
       width: 100%;
       height: 150px;
+	  
   }
 }
 
@@ -1657,5 +1680,51 @@ p {
   
   .card-image img {
     transform: none;
+  }
+}
+/* Custom CSS Block for Guaranteed Spacing Fix (Vertical and Horizontal) */
+
+/* --- Mobile Screens (up to 768px) --- */
+@media (max-width: 768px) {
+  /* 1. ENSURE VERTICAL SPACE for Article Tile (between fixed header and content) */
+  .article-layout-grid {
+    /* Use a generous top padding (3rem) and make sure it overrides any global layout padding */
+    padding-top: var(--space-xl) !important; 
+  }
+
+  /* 2. ENSURE HORIZONTAL SPACE for all content (including tiles) */
+  .container {
+    /* Set horizontal padding to 1.5rem (var(--space-md)) */
+    padding-left: var(--space-md) !important; 
+    padding-right: var(--space-md) !important;
+  }
+}
+
+/* --- Smallest Screens (up to 480px) --- */
+@media (max-width: 480px) {
+  /* 1. INCREASE BODY PADDING: This is the most crucial fix. 
+     The body padding MUST be greater than or equal to the header height. 
+     We'll use var(--space-2xl) (4rem/64px) + a buffer (70px is likely not enough). 
+     We will adjust the body padding to a high value like 80px to safely account for the header. */
+  body {
+    padding-top: 80px !important; 
+  }
+
+  /* 2. ENSURE VERTICAL SPACE for Article Tile */
+  .article-layout-grid {
+    /* Re-apply generous top padding (3rem) for the gap below the header */
+    padding-top: var(--space-xl) !important;
+  }
+
+  /* 3. ENSURE HORIZONTAL SPACE */
+  .container {
+    /* Set horizontal padding to 1.5rem (var(--space-md)) for visible side space */
+    padding: 0 var(--space-md) !important; 
+  }
+  
+  /* 4. Article Figure Adjustment: Reset negative margin to respect new container padding */
+  .article-figure {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }

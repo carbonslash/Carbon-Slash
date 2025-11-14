@@ -10,7 +10,7 @@
         <section class="category-header">
             <div class="container">
                 {{/* Use custom 'header_title' from front matter, otherwise default to the category name */}}
-                <h1 class="category-title">{{ with .Params.header_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}</h1>
+                <h2 class="category-title">{{ with .Params.header_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}</h2>
                 
                 {{/* Use custom 'description' from front matter, otherwise use a generic fallback */}}
                 <p class="category-description">{{ with .Params.description }}{{ . }}{{ else }}Exploring the latest stories, research, and analysis in the {{ .Title }} sector.{{ end }}</p> 
@@ -68,7 +68,7 @@
             {{/* RIGHT COLUMN: CATEGORY SIDEBAR */}}
             <div class="category-sidebar-column">
                 <div class="featured-category-sidebar">
-                    <h3 class="related-articles-title">More in {{ .Title }}</h3>
+                    <h3 class="related-articles-title">Read more</h3>
                     
                     {{/* LOGIC CHANGE: Get the 4 chronologically oldest articles in this section. */}}
                     {{ $sidebarPosts := .Pages.ByDate | first 4 }}
