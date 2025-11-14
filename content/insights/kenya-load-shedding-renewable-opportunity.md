@@ -2,7 +2,7 @@
 title: "Kenya's Load Shedding Crisis Reveals Renewable Energy Investment Opportunity."
 date: 2025-11-14T12:00:00Z 
 author: "Carbon Slash contributor"
-category: "Energy"
+category: "insights"
 excerpt: "Recurring power outages in Kenya signal a critical vulnerability, but they highlight an immediate, massive market opportunity for decentralized solar and storage solutions."
 image: "/images/kenya-solar-load-shedding.jpg"
 is_featured_card: false 
