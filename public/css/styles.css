@@ -440,7 +440,7 @@ p {
   left: 0;
 
   /* Top + Height are dynamically adjusted by JS */
-  top: 10px;
+  top: 40px;
   height: 100vh;
 
   width: 100%;

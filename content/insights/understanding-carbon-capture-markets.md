@@ -1,5 +1,5 @@
 ---
-title: "Understanding Carbon Capture: Policy and Market Dynamics"
+title: "Understanding Carbon Capture: Policy and Market Dynamics."
 date: 2025-11-08T14:45:00Z 
 author: "Sarah J. Peterson"
 category: "Insights"
