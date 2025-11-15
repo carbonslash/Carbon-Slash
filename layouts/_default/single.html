@@ -50,7 +50,7 @@
             {{/* RIGHT COLUMN: RELATED ARTICLES */}}
             <div class="related-articles-column">
                 <div class="related-articles-sidebar">
-                    <h3 class="related-articles-title">Related Articles</h3>
+                    <h4 class="section-title" >Related Articles</h4>
                     
                     {{/* Fetch 4 related articles from the same section/category, excluding the current article */}}
                     {{ $sidebarPosts := where (where .Site.RegularPages "Section" .Section) "Permalink" "!=" .Permalink | first 4 }}

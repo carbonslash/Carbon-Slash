@@ -4,6 +4,7 @@
   --sage: #87A38B;
   --true-black: #141414;
   --cream: #F8F5F0;
+  --badge: #F9F7F3;
   --light-gray: #E8E6E1;
   --pure-white: #FFFFFF;
   --gray: #353E40; 
@@ -282,7 +283,7 @@ p {
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-xl);
 }
 
@@ -836,23 +837,23 @@ p {
 
 .related-articles-sidebar {
     position: relative; 
-    top: 0;
+    top: -22px;
     padding: var(--space-md);
-    background: var(--light-gray); 
+    background: transparent; 
     border-radius: 4px;
     height: fit-content; 
 	
 }
 
-.related-articles-title {
-    font-family: 'Rubik';
-    font-size: var(--text-lg);
-    font-weight: 600;
+.related-articles-sidebar .section-title{
+	font-family: 'DM Serif Display', Georgia, serif;
     color: var(--forest-green);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+	font-weight: normal;
+    padding-left: var(--space-md);
+    margin-bottom: -14px;
+    
 }
+
 
 .related-articles-list {
     display: flex;
@@ -923,6 +924,7 @@ p {
 
 .related-article-link:hover .related-article-title {
     color: var(--forest-green);
+	
 }
 
 .related-article-meta {
@@ -952,11 +954,12 @@ p {
 .category-sidebar-column {
     /* Sidebar content box style */
     position: relative; 
-    top: -30px;
+    top: -22px;
     padding: var(--space-md);
     background: transparent; 
     border-radius: 4px;
     height: fit-content; 
+	
 }
 
 /* Sidebar Card Overrides (to match the card *style* but adapt to narrow column) */
@@ -964,6 +967,7 @@ p {
     /* Force single column, overriding grid-swiss settings */
     grid-template-columns: 1fr;
     gap: var(--space-md);
+	
 }
 
 .category-sidebar-column .card-image {
@@ -979,8 +983,18 @@ p {
 .category-sidebar-column .card-title {
     font-size: var(--text-base); /* Downsize the title for the narrow space */
     line-height: 1.3;
-	text-decoration:none;
+	text-decoration: none;
 }
+
+.featured-category-sidebar .section-title{
+	font-family: 'DM Serif Display', Georgia, serif;
+	color: var(--forest-green);
+	font-weight: normal;
+    padding-left: var(--space-md);
+    margin-bottom: 34px;
+	
+}
+
 
 .category-sidebar-column .card-excerpt {
     display: none; /* Hide the excerpt completely to save space */
@@ -1053,8 +1067,8 @@ p {
 
 /* Cards */
 .card {
-  background-color: none;
-  border-radius: 2px;
+  background-color: #F9F7F3;
+  border-radius: 4px;
   overflow: hidden;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -1196,16 +1210,22 @@ p {
     font-size: var(--text-lg);
     color: var(--forest-green);
     padding-bottom: var(--space-xs);
+	
 }
 
 .featured-card {
     display: block;
     margin-bottom: var(--space-md);
     padding: var(--space-xs);
-    background: transparent;
+    background: transparent; 
     border: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease-out;
+    background-color: #F9F7F3; 
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%); /* For Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 4px; 
 }
 
 .featured-card:hover {
