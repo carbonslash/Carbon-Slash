@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+    
+    {{/* EXCLUSIVE CSS for the Contact Layout */}}
+    <style>
+        .contact-page-body main {
+            display: block !important; 
+            width: 100% !important;
+            padding: var(--space-3xl) 0;
+        }
+        .contact-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* 1 column for details, 1.5 for the form */
+            gap: var(--space-2xl);
+        }
+        .contact-header {
+            text-align: center;
+            padding-bottom: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .contact-header h1 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-sm);
+        }
+        .contact-header p {
+            font-size: var(--text-lg);
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .contact-info h2, .contact-form-container h2 {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-md);
+            color: var(--forest-green);
+        }
+        .contact-info ul {
+            list-style: none;
+        }
+        .contact-info li {
+            font-size: var(--text-base);
+            margin-bottom: var(--space-sm);
+            line-height: 1.5;
+        }
+
+        /* Form Styling */
+        .contact-form label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: bold;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: var(--space-sm);
+            margin-bottom: var(--space-md);
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-size: var(--text-base);
+            box-sizing: border-box;
+        }
+        .contact-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        .contact-form .button {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-md);
+            background-color: var(--forest-green);
+            color: var(--pure-white);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: var(--text-base);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body class="js-loading contact-page-body">
+    
+    {{ partial "header.html" . }}
+
+    <main id="main-content">
+        <section class="contact-header">
+            <div class="container">
+                <h1>{{ .Title }}</h1>
+                <p>We're based in Nairobi, Kenya, and welcome inquiries regarding our content, partnerships, and collaborations in the African energy sector.</p>
+            </div>
+        </section>
+
+        <div class="contact-grid">
+            
+            <div class="contact-info">
+                <h2>General Inquiries & Submissions</h2>
+                <ul>
+                    <li><strong>Editorial Desk:</strong> For pitches and content inquiries.</li>
+                    <li><a href="mailto:editorial@carbonslash.com">editorial@carbonslash.com</a></li>
+                    
+                    <li style="margin-top: var(--space-lg);"><strong>Partnerships:</strong> For advertising and business proposals.</li>
+                    <li><a href="mailto:partnerships@carbonslash.com">partnerships@carbonslash.com</a></li>
+                    
+                    <li style="margin-top: var(--space-lg);"><strong>Data Protection Officer:</strong> For privacy concerns (Kenya DPA).</li>
+                    <li><a href="mailto:dpo@carbonslash.com">dpo@carbonslash.com</a></li>
+                </ul>
+            </div>
+
+            <div class="contact-form-container">
+                <h2>Send Us a Message</h2>
+                {{/* NOTE: The 'action' attribute below is a placeholder. 
+                    You must link this form to an external service (like Netlify Forms, Formspree, or a custom serverless function) 
+                    to actually collect the data, as Hugo does not process form submissions.
+                */}}
+                <form class="contact-form" action="#" method="POST"> 
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                    
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                    
+                    <button type="submit" class="button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    {{ partial "footer.html" . }} 
+    
+    <script src="{{ "/js/script.js" | relURL }}"></script>
+</body>
+</html>

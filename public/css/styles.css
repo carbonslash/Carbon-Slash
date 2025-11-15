@@ -47,6 +47,7 @@ body {
   font-size: var(--text-base);
   visibility: visible;
   padding-top: 80px;
+  
 }
 
 .container {
@@ -832,7 +833,7 @@ p {
 }
 
 /* NEW: Related Articles Sidebar Styles */
-.
+
 .related-articles-sidebar {
     position: relative; 
     top: 0;
@@ -848,7 +849,7 @@ p {
     font-size: var(--text-lg);
     font-weight: 600;
     color: var(--forest-green);
-    margin-bottom: none;
+    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -947,13 +948,13 @@ p {
     /* Ensures the content column can flex appropriately */
     min-width: 0;
 }
-.
+
 .category-sidebar-column {
     /* Sidebar content box style */
     position: relative; 
-    top: 0px;
+    top: -30px;
     padding: var(--space-md);
-    background: none; 
+    background: transparent; 
     border-radius: 4px;
     height: fit-content; 
 }
@@ -1179,12 +1180,12 @@ p {
     padding-top: var(--space-lg); /* Slightly offset the sidebar title */
 }
 
-.
+
 .featured-articles-section {
     position: relative; 
-    top: 40px;
+    top: 18px;
     padding: var(--space-md);
-    background: var(--light-gray); 
+    background:transparent; 
     border-radius: 8px;
     height: fit-content;  
 }

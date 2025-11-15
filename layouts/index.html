@@ -13,10 +13,18 @@
             <div class="main-content-column">
 
                 <section class="latest-stories">
-                    <h2 id="latest">Latest Articles</h2>
-                    
+                    <h2 id="latest">
+                      {{ if eq .Paginator.PageNumber 1 }}
+                         Latest Articles
+                      {{ else }}
+                           <p>Articles</p>
+                      {{ end }}
+                     </h2>
                     {{/* HUGO PAGINATION SETUP (9 articles per page) */}}
-                    {{ $paginator := .Paginate (.Site.RegularPages.ByDate.Reverse) 9 }}
+                    {{/* FIX 2: ULTIMATE INCLUSION FILTER. ONLY includes the four article categories. */}}
+                    {{ $pages := where .Site.RegularPages "Type" "in" (slice "electric" "innovation" "insights" "community") }}
+                    {{ $paginator := .Paginate ($pages.ByDate.Reverse) 9 }}
+
                     
                     <div class="grid-swiss">
                         {{ range $paginator.Pages }} 
@@ -46,10 +54,10 @@
                     {{ if gt $paginator.TotalPages 1 }}
                         <div class="pagination-controls">
                             {{ if $paginator.HasPrev }}
-                                <a href="{{ $paginator.Prev.URL }}" class="button pagination-prev">← Newer Articles</a>
+                                <a href="{{ $paginator.Prev.URL }}" class="button pagination-prev">← Recents</a>
                             {{ end }}
                             {{ if $paginator.HasNext }}
-                                <a href="{{ $paginator.Next.URL }}" class="button pagination-next">Older Articles →</a>
+                                <a href="{{ $paginator.Next.URL }}" class="button pagination-next">Read More →</a>
                             {{ end }}
                         </div>
                     {{ end }}
@@ -95,6 +103,7 @@
     </main>
 
     {{ partial "footer.html" . }} 
+
     
     {{/* FIX: Corrected JavaScript link using relURL (ensure this is correct in the other files too!) */}}
     <script src="{{ "/js/script.js" | relURL }}"></script>

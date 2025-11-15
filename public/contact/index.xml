@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Contacts on Carbon Slash</title>
+    <link>http://localhost:1313/contact/</link>
+    <description>Recent content in Contacts on Carbon Slash</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/contact/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Contact Carbon Slash</title>
+      <link>http://localhost:1313/contact/contact/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/contact/contact/</guid>
+      <description>&lt;p&gt;This content will be overridden by the layout file, but the title and meta are crucial.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

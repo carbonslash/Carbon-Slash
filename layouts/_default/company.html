@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+    
+    <style>
+        .company-page-body main {
+            display: block !important; 
+            width: 100% !important;
+            padding: var(--space-3xl) 0;
+        }
+        .company-page-container {
+            max-width: 900px; /* Optimal reading width */
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            text-align: left;
+        }
+        .company-header {
+            text-align: center;
+            padding-bottom: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .company-header h1 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-sm);
+        }
+        .company-content h2 {
+            font-size: var(--text-2xl);
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-md);
+            color: var(--forest-green);
+        }
+        .company-content p, .company-content li {
+            font-size: var(--text-base);
+            line-height: 1.7;
+            margin-bottom: var(--space-sm);
+        }
+        /* Specific styling for the Careers page message */
+        .no-vacancies {
+            font-weight: bold;
+            color: #cc0000; /* Red for emphasis on "No Vacancies" */
+            font-size: var(--text-lg);
+            margin-top: var(--space-md);
+        }
+    </style>
+</head>
+<body class="js-loading company-page-body">
+    
+    {{ partial "header.html" . }}
+
+    <main id="main-content">
+        <article class="company-page-container">
+            
+            <header class="company-header">
+                <h1>{{ .Title }}</h1>
+            </header>
+
+            <div class="company-content">
+                {{ .Content }}
+            </div>
+            
+        </article>
+    </main>
+
+    {{ partial "footer.html" . }} 
+    
+    <script src="{{ "/js/script.js" | relURL }}"></script>
+</body>
+</html>

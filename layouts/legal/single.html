@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+    
+    {{/* EXCLUSIVE CSS for readability and Centering */}}
+    <style>
+        /* General Layout Reset to ensure content spans full width (no sidebars) */
+        .legal-page-body main {
+            display: block !important; 
+            width: 100% !important;
+            padding: var(--space-3xl) 0;
+        }
+        
+        /* Container for Centering the entire content block */
+        .legal-page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            
+            /* --- 1. CENTERS THE H1 TITLE --- */
+            text-align: center; 
+        }
+
+        /* --- 2. OVERRIDES ALIGNMENT FOR ALL BODY TEXT AND HEADERS FOR READABILITY --- */
+        .legal-content,
+        .legal-content p, 
+        .legal-content li, 
+        .legal-content h2 {
+            text-align: left;
+			
+			
+			
+        }
+
+        /* Title styling */
+        .legal-content h1 {
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-lg);
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: var(--space-sm);
+			
+        }
+
+        /* Remaining readability styles */
+        .legal-content h2 {
+            margin-top: var(--space-xl);
+            font-size: var(--text-xl);
+        }
+        .legal-content p, .legal-content li {
+            font-size: var(--text-base);
+            line-height: 1.6;
+            margin-bottom: var(--space-sm);
+			padding-left: 0;
+            margin-left: 0;
+            list-style-position: inside;
+        }
+    </style>
+</head>
+<body class="js-loading legal-page-body">
+    
+    {{ partial "header.html" . }}
+
+    <main id="main-content">
+        <article class="legal-page-container">
+            
+            <header>
+                <h1>{{ .Title }}</h1>
+            </header>
+
+            <div class="legal-content">
+                {{ .Content }}
+            </div>
+            
+        </article>
+    </main>
+
+    {{ partial "footer.html" . }} 
+    
+    <script src="{{ "/js/script.js" | relURL }}"></script>
+</body>
+</html>

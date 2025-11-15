@@ -15,18 +15,20 @@
                 <div class="footer-column">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
+                        {{/* UPDATED COMPANY LINKS */}}
+                        <li><a href="{{ "/about/" | relURL }}">About</a></li>
+                        <li><a href="{{ "/team/" | relURL }}">Team</a></li>
+                        <li><a href="{{ "/careers/" | relURL }}">Careers</a></li>
+                        <li><a href="{{ "/contact/" | relURL }}">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
+                        {{/* UPDATED LEGAL LINKS */}}
+                        <li><a href="{{ "/legal/privacy/" | relURL }}">Privacy Policy</a></li>
+                        <li><a href="{{ "/legal/terms/" | relURL }}">Terms of Service</a></li>
+                        <li><a href="{{ "/legal/cookie/" | relURL }}">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
