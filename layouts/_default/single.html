@@ -70,6 +70,7 @@
                                     <a href="{{ "/" | relLangURL }}{{ .Params.category | urlize }}/" class="tag tag-{{ .Params.category | urlize }}">
                                         {{ .Params.category }}
                                     </a>
+									<a href="{{ "/" | relLangURL }}{{ .Params.category | urlize }}/"style="color: black; text-decoration: none;" class="card-title-{{ .Params.category | urlize }}">
                                     <h4 class="card-title">{{ .Title }}</h4>
                                     <div class="card-meta">
                                         <span class="author">By {{ .Params.author }}</span>

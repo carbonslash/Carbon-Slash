@@ -806,6 +806,7 @@ p {
     margin-top: var(--space-2xl);
     margin-bottom: var(--space-lg);
     font-size: var(--text-2xl);
+	text-align: Center;
 	
 }
 
@@ -813,6 +814,7 @@ p {
     margin-top: var(--space-xl);
     margin-bottom: var(--space-md);
     font-size: var(--text-xl);
+
 }
 
 .article-content p {
@@ -970,11 +972,13 @@ p {
 .category-sidebar-column .card-content {
     padding: var(--space-sm); /* Reduce padding for density */
 	
+	
 }
 
 .category-sidebar-column .card-title {
     font-size: var(--text-base); /* Downsize the title for the narrow space */
     line-height: 1.3;
+	text-decoration:none;
 }
 
 .category-sidebar-column .card-excerpt {
@@ -1690,69 +1694,82 @@ p {
     transform: none;
   }
 }
-/* Custom CSS Block for Guaranteed Spacing Fix (Vertical and Horizontal) */
+/* Final Consolidated CSS Block for All Article Layout Fixes */
 
-/* --- Mobile Screens (up to 768px) --- */
+/* --- Global Styles (PC & Mobile Baseline) --- */
+
+/* Ensures h2 and h3 styles apply to both PC and Mobile without repetition. */
+.article-content h2 {
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-xl);
+  text-align: Center;
+}
+
+.article-content h3 {
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-xl);
+}
+
+/* Fixes list alignment (bullets/numbers) for both PC and Mobile. */
+.article-tile ul,
+.article-tile ol {
+  padding-left: 0;
+  margin-left: 0;
+  list-style-position: inside;
+}
+
+/* New CSS to ensure the newly added title link in the sidebar looks clean */
+.category-sidebar-column .card-title-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Ensure the link takes up the full width of the title */
+}
+
+
+/* --- Tablet/Mobile Screens (up to 768px) --- */
 @media (max-width: 768px) {
-  /* 1. ENSURE VERTICAL SPACE for Article Tile (between fixed header and content) */
+  /* 1. VERTICAL SPACE FIX: Adds the buffer space below the fixed header. */
   .article-layout-grid {
-    /* Use a generous top padding (3rem) and make sure it overrides any global layout padding */
     padding-top: var(--space-xl) !important; 
   }
 
-  /* 2. ENSURE HORIZONTAL SPACE for all content (including tiles) */
+  /* 2. HORIZONTAL WIDER TILE: Decrease the outer container padding to 0.5rem (var(--space-xs)). */
   .container {
-    /* Set horizontal padding to 1.5rem (var(--space-md)) */
-    padding-left: var(--space-sm) !important; 
-    padding-right: var(--space-sm) !important;
-  }
-}
-
-/* --- Smallest Screens (up to 480px) --- */
-@media (max-width: 480px) {
-  /* 1. INCREASE BODY PADDING: This is the most crucial fix. 
-     The body padding MUST be greater than or equal to the header height. 
-     We'll use var(--space-2xl) (4rem/64px) + a buffer (70px is likely not enough). 
-     We will adjust the body padding to a high value like 80px to safely account for the header. */
-  body {
-    padding-top: 80px !important; 
-  }
-.article-content h2 {
-    margin-top: var(--space-2xl);
-    margin-bottom: var(--space-lg);
-    font-size: var(--text-xl);
-	text-align: Center;
-  }
-  .article-content h3 {
-    margin-top: var(--space-2xl);
-    margin-bottom: var(--space-lg);
-    font-size: var(--text-xl);
-	
-	}
-
-  /* 2. ENSURE VERTICAL SPACE for Article Tile */
-  .article-layout-grid {
-    /* Re-apply generous top padding (3rem) for the gap below the header */
-    padding-top: var(--space-xl) !important;
+    padding-left: var(--space-xs) !important; 
+    padding-right: var(--space-xs) !important;
   }
 
-  /* 3. ENSURE HORIZONTAL SPACE */
-  .container {
-    /* Set horizontal padding to 1.5rem (var(--space-md)) for visible side space */
-    padding: 0 var(--space-xs) !important; 
-  }
-  
-  /* 4. Article Figure Adjustment: Reset negative margin to respect new container padding */
-  .article-figure {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
+  /* 3. INNER PADDING FIX: Adds MORE internal padding (2rem) for text margin inside the tile. */
   .article-tile {
     padding-left: var(--space-lg) !important;
     padding-right: var(--space-lg) !important;
   }
-  .article-tile p {
-  text-align: justify;
+  
+  /* 4. TEXT JUSTIFICATION: Justify all paragraph and list item text. */
+  .article-tile p,
+  .article-tile li {
+    text-align: justify;
+  }
+}
+
+
+/* --- Smallest Screens (up to 480px) --- */
+@media (max-width: 480px) {
+  /* 1. BODY PADDING: Retains the explicit 80px body padding override for smallest screens. */
+  body {
+    padding-top: 80px !important; 
+  }
+  
+  /* 2. HORIZONTAL WIDER TILE: Ensures consistency with the 768px container padding. */
+  .container {
+    padding: 0 var(--space-xs) !important; 
   }
 
+  /* 3. Article Figure Adjustment: Prevents article images from bleeding past the new side padding. */
+  .article-figure {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
