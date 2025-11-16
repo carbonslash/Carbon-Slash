@@ -703,8 +703,8 @@ p {
 }
 
 .related-articles-column {
-    /* Content is already aligned to the left side of its column */
-    /* ... */
+   padding: var(--space-md);
+   
 }
 
 /* 1. Article Tile (The main framed container/card for the article) */
@@ -838,7 +838,6 @@ p {
 .related-articles-sidebar {
     position: relative; 
     top: -22px;
-    padding: var(--space-md);
     background: transparent; 
     border-radius: 4px;
     height: fit-content; 

@@ -8,31 +8,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===== Header Scroll Behavior =====
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
+     const header = document.querySelector('.header');
+    if (header) {
+        let lastScrollY = window.scrollY;
+        let isTicking = false;
 
-    const updateHeader = () => {
-        const scrolled = window.scrollY > 100;
-        header.classList.toggle('scrolled', scrolled);
+        const updateHeader = () => {
+            const currentScrollY = window.scrollY;
+            const scrolled = currentScrollY > 50;
 
-        if (window.scrollY > lastScrollY && window.scrollY > 200) {
-            header.classList.add('hidden');
-        } else {
-            header.classList.remove('hidden');
-        }
+            // Add 'scrolled' class for visual changes
+            header.classList.toggle('scrolled', scrolled);
 
-        lastScrollY = window.scrollY;
-        ticking = false;
-    };
+            // Hide/Show logic for 'hidden' class
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                // Scrolling Down past 200px
+                header.classList.add('hidden');
+            } else {
+                // Scrolling Up or Near Top
+                header.classList.remove('hidden');
+            }
 
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(updateHeader);
-            ticking = true;
-        }
-    });
+            lastScrollY = currentScrollY;
+            isTicking = false;
+        };
 
+        const onScroll = () => {
+            if (!isTicking) {
+                requestAnimationFrame(updateHeader);
+                isTicking = true;
+            }
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true }); // Use passive listener for performance
+    }
     // ===== Desktop Mega Menu =====
     const menuTrigger = document.querySelector('.menu-trigger');
     const megaMenu = document.querySelector('.mega-menu');
