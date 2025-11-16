@@ -1,4 +1,4 @@
 # config.toml (or hugo.toml)
-baseURL = "https://carbonslash.netlify.app/"
+baseURL = "https://carbonslash.pages.dev/"
 languageCode = "en-us"
 title = "Carbon Slash"
